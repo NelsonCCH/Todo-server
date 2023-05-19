@@ -1,26 +1,22 @@
 {
-  "name": "todo-server",
+  "name": "server",
   "version": "1.0.0",
-  "description": "Server of todo app",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NelsonCCH/Todo-server.git"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NelsonCCH/Todo-server/issues"
-  },
-  "homepage": "https://github.com/NelsonCCH/Todo-server#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "mongoose": "^7.1.2"
+    "mongoose": "^7.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
