@@ -11,7 +11,7 @@ exports.getPendingTodo = async (req, res) => {
 
 exports.getDoneTodo = async (req, res) => {
     try {
-        const todos = await Todo.find({complete:true}).sort({ content: 1 });
+        const todos = await Todo.find({complete:true}).sort({ content: 1 }).limit(10);
         res.json(todos);
     } catch (err) {
         res.status(400).json({ message: 'Failed to get todos', error: err.message });
