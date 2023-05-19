@@ -1,22 +1,21 @@
-require('dotenv').config()
-const express = require('express')
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
 
-const cors = require('cors')
+const connectDB = require("./config/db");
+const todo = require("./routes/todo");
 
-const connectDB = require('./config/db')
+const app = express();
 
-const app = express()
+connectDB();
 
-const todo = require('./routes/todo')
+app.use(express.json());
+app.use(cors());
 
-connectDB()
+// welcome route for testing
+app.get("/", (req, res) => res.send("Server is up running!"));
 
-app.use(express.json())
-app.use(cors())
+// applying the routes in todo
+app.use("/api/todo", todo);
 
-
-app.get('/', (req, res)=> res.send("Server is up running!"))
-
-app.use('/api/todo', todo)
-
-app.listen(3001, () => console.log('server listening for port 3001'))
+app.listen(3001, () => console.log("server listening for port 3001"));

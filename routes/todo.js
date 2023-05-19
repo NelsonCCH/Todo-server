@@ -1,22 +1,27 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
 const {
-    getPendingTodo,
-    getDoneTodo,
-    postCreateTodo,
-    updateTodo,
-    deleteAllTodos,
-} = require("../controllers/todo")
+  getPendingTodo,
+  getDoneTodo,
+  postCreateTodo,
+  updateTodo,
+  deleteAllTodos,
+} = require("../controllers/todo");
 
-router.get('/pending_todo', getPendingTodo)
+// get incomplete todos
+router.get("/pending_todo", getPendingTodo);
 
-router.get('/done_todo', getDoneTodo)
+// get completed todos
+router.get("/done_todo", getDoneTodo);
 
-router.post('/', postCreateTodo)
+// create new todo
+router.post("/", postCreateTodo);
 
-router.put('/:id', updateTodo)
+// toggle todo between complete and incomplete
+router.put("/:id", updateTodo);
 
-router.delete('/', deleteAllTodos)
+// delete all todos in db, both completed and incomplete ones
+router.delete("/", deleteAllTodos);
 
-module.exports = router
+module.exports = router;
